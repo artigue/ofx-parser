@@ -10,7 +10,7 @@ export class OfxStatementDateAdapter {
       // statementDate.start = body.OFX.BANKMSGSRSV1.STMTTRNRS.STMTRS.BANKTRANLIST.DTSTART
       // statementDate.end = body.OFX.BANKMSGSRSV1.STMTTRNRS.STMTRS.BANKTRANLIST.DTEND
       start: OfxDateUtil.OfxDateToDate(transactionsList.DTSTART),
-      end: OfxDateUtil.OfxDateToDate(transactionsList.DTEND)
+      end: OfxDateUtil.OfxDateToDate(transactionsList.DTEND),
     };
   }
 }

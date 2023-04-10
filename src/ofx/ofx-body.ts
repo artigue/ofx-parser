@@ -235,7 +235,7 @@ export interface OfxBankMessage {
     STMTRS: {
       CURDEF: string;
       BANKACCTFROM: OfxBankAccountFrom;
-      BANKTRANLIST: OfxStatementTransactionList // {
+      BANKTRANLIST: OfxStatementTransactionList; // {
       //   DTSTART: string;
       //   DTEND: string;
       //   STMTTRN: Array<OfxStatementTransaction>;
@@ -251,7 +251,6 @@ export interface OfxStatementTransactionList {
   DTEND: string;
   STMTTRN: Array<OfxStatementTransaction>;
 }
-
 
 export interface OfxStatementTransaction {
   TRNTYPE: string;

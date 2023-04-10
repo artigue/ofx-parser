@@ -2,7 +2,7 @@ import { OfxDateUtil } from './ofx-date.util';
 import { PositionModel } from '../position.model';
 import {
   OfxInvestmentPositionType,
-  OfxInvestmentStatementResponse
+  OfxInvestmentStatementResponse,
 } from './ofx-body';
 
 export class OfxInvestmentPositionAdapter {
@@ -68,7 +68,7 @@ export class OfxInvestmentPositionAdapter {
     typeName: string
   ): PositionModel[] {
     if (Array.isArray(positionType)) {
-      return positionType.map(posType => {
+      return positionType.map((posType) => {
         return this.convertPositionTypeToPosition(posType, typeName);
       });
     } else {
@@ -87,7 +87,7 @@ export class OfxInvestmentPositionAdapter {
       positionType: typeName,
       secId: positionType.INVPOS.SECID.UNIQUEID,
       unitPrice: parseFloat(positionType.INVPOS.UNITPRICE),
-      units: parseFloat(positionType.INVPOS.UNITS)
+      units: parseFloat(positionType.INVPOS.UNITS),
     };
   }
 
@@ -99,7 +99,7 @@ export class OfxInvestmentPositionAdapter {
       marketValue: parseFloat(response.INVBAL.AVAILCASH),
       memo: undefined,
       positionType: 'CASH',
-      secId: 'CASH'
+      secId: 'CASH',
     };
   }
 }

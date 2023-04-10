@@ -9,15 +9,15 @@ const main = async () => {
     message: 'Carbonate accounts or a statement?',
     choices: [
       { title: 'Accounts', value: 0 },
-      { title: 'Statement', value: 1 }
-    ]
+      { title: 'Statement', value: 1 },
+    ],
   });
   const filePathAnswer = await prompts({
     type: 'text',
     name: 'filePath',
     message: 'file path: ',
-    validate: val =>
-      val !== null && val.length > 0 ? true : 'file path is required.'
+    validate: (val) =>
+      val !== null && val.length > 0 ? true : 'file path is required.',
   });
 
   const ofxData = await readFile(filePathAnswer.filePath);
@@ -38,7 +38,7 @@ const main = async () => {
   }
 };
 
-function readFile(filePath): Promise<string> {
+function readFile(filePath: string): Promise<string> {
   return new Promise((resolve, reject) => {
     let ofxData = '';
     const readStream = fs.createReadStream(filePath);
@@ -46,7 +46,7 @@ function readFile(filePath): Promise<string> {
       .on('data', (data: string) => {
         ofxData += data;
       })
-      .on('error', e => {
+      .on('error', (e) => {
         reject(e);
       })
       .on('end', () => {

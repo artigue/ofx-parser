@@ -9,7 +9,7 @@ export class OfxStatementTransactionAdapter {
     let payee;
     if (trans.PAYEE) {
       payee = {
-        name: trans.PAYEE.NAME
+        name: trans.PAYEE.NAME,
       };
     }
     return {
@@ -27,7 +27,7 @@ export class OfxStatementTransactionAdapter {
       correctFitId: trans.CORRECTFITID,
       correctAction: trans.CORRECTACTION,
       serverTransactionId: trans.SRVRTID,
-      imageData: trans.IMAGEDATA
+      imageData: trans.IMAGEDATA,
     };
   }
   public static convertTransactionList(

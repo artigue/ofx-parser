@@ -9,7 +9,7 @@ export class OfxCreditCardAccountAdapter {
       accountId: accountInfo.CCACCTINFO.CCACCTFROM.ACCTID,
       serviceStatus: accountInfo.CCACCTINFO.SVCSTATUS,
       ofxAccountType: accountInfo.CCACCTINFO.CCACCTFROM.ACCTTYPE,
-      bankId: accountInfo.CCACCTINFO.CCACCTFROM.BANKID
+      bankId: accountInfo.CCACCTINFO.CCACCTFROM.BANKID,
     };
   }
 }

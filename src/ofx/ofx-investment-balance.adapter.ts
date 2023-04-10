@@ -1,6 +1,6 @@
 import {
   OfxInvestmentPositionType,
-  OfxInvestmentStatementResponse
+  OfxInvestmentStatementResponse,
 } from './index';
 import { OfxDateUtil } from './ofx-date.util';
 import { AccountBalanceModel } from '../account-balance.model';
@@ -22,7 +22,7 @@ export class OfxInvestmentBalanceAdapter {
     // }
     return {
       balanceAmount: balance,
-      balanceAsOf: OfxDateUtil.OfxDateToDate(statementResponse.DTASOF)
+      balanceAsOf: OfxDateUtil.OfxDateToDate(statementResponse.DTASOF),
     };
   }
 
@@ -52,7 +52,7 @@ export class OfxInvestmentBalanceAdapter {
   ): number {
     if (Array.isArray(positionType)) {
       let result = 0;
-      positionType.map(posType => {
+      positionType.map((posType) => {
         result = NumUtil.addNumbers(result, parseFloat(posType.INVPOS.MKTVAL));
       });
       return result;

@@ -27,19 +27,19 @@ export class OfxParser {
 
   private async readLocalFile(filePath: string) {
     return new Promise((resolve, reject) => {
-      let ofxData = ''
-      const readStream = createReadStream(filePath)
+      let ofxData = '';
+      const readStream = createReadStream(filePath);
       readStream
         .on('data', (data: string) => {
-          ofxData += data
+          ofxData += data;
         })
-        .on('error', e => {
-          reject(e)
+        .on('error', (e) => {
+          reject(e);
         })
         .on('end', () => {
-          resolve(ofxData)
-        })
-    })
+          resolve(ofxData);
+        });
+    });
   }
 
   /**
@@ -49,15 +49,15 @@ export class OfxParser {
    * @param filePath path to a local file
    */
   public async parseStatementFile(filePath: string): Promise<StatementModel> {
-    const ofxData = await this.readLocalFile(filePath) as string
+    const ofxData = (await this.readLocalFile(filePath)) as string;
 
-    let result: StatementModel
+    let result: StatementModel;
     try {
-      result = await this.parseStatement(ofxData)
-      return result
+      result = await this.parseStatement(ofxData);
+      return result;
     } catch (err) {
-      console.error(err)
-      return err
+      console.error(err);
+      return err;
     }
   }
 
@@ -74,7 +74,7 @@ export class OfxParser {
     let availableBalance: AccountBalanceModel;
     let transactions: TransactionModel[];
     let positions: PositionModel[];
-    let statementDate: any = {}
+    let statementDate: any = {};
     if (body.OFX.BANKMSGSRSV1) {
       ledgerBalance = OfxAccountBalanceAdapter.convertToAccountBalance(
         body.OFX.BANKMSGSRSV1.STMTTRNRS.STMTRS.LEDGERBAL
@@ -87,7 +87,7 @@ export class OfxParser {
       if (body.OFX.BANKMSGSRSV1.STMTTRNRS.STMTRS.BANKTRANLIST.DTSTART) {
         statementDate = OfxStatementDateAdapter.convertStatementDate(
           body.OFX.BANKMSGSRSV1.STMTTRNRS.STMTRS.BANKTRANLIST
-        )
+        );
       }
       transactions = OfxStatementTransactionAdapter.convertTransactionList(
         body.OFX.BANKMSGSRSV1.STMTTRNRS.STMTRS.BANKTRANLIST.STMTTRN
@@ -137,7 +137,7 @@ export class OfxParser {
       startDate: statementDate.start,
       endDate: statementDate.end,
       transactions: transactions,
-      positions: positions
+      positions: positions,
     };
   }
 

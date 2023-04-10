@@ -8,13 +8,13 @@ describe('OfxBankAccountAdapter', () => {
         BANKACCTFROM: {
           ACCTID: '456',
           ACCTTYPE: 'CHECKING',
-          BANKID: '123'
+          BANKID: '123',
         },
         SVCSTATUS: 'ACTIVE',
         SUPTXDL: '',
         XFERDEST: '',
-        XFERSRC: ''
-      }
+        XFERSRC: '',
+      },
     };
     const model = OfxBankAccountAdapter.convertToAccount(accountInfo);
     expect(model.accountId).toBe('456');

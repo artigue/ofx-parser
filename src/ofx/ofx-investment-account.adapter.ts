@@ -9,7 +9,7 @@ export class OfxInvestmentAccountAdapter {
       accountId: accountInfo.INVACCTINFO.INVACCTFROM.ACCTID,
       ofxAccountType: 'INVESTMENT',
       serviceStatus: accountInfo.INVACCTINFO.SVCSTATUS,
-      brokerId: accountInfo.INVACCTINFO.INVACCTFROM.BROKERID
+      brokerId: accountInfo.INVACCTINFO.INVACCTFROM.BROKERID,
     };
   }
 }

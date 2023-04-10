@@ -2,7 +2,7 @@ import {
   OfxInvestmentBuyMfTransaction,
   OfxInvestmentBuyOtherTransaction,
   OfxInvestmentIncomeTransaction,
-  OfxInvestmentTransactionList
+  OfxInvestmentTransactionList,
 } from './ofx-body';
 import { TransactionModel } from '../transaction.model';
 import { OfxDateUtil } from './ofx-date.util';
@@ -23,7 +23,7 @@ export class OfxInvestmentTransactionAdapter {
       correctFitId: trans.INVBUY.INVTRAN.REVERSALFITID,
       price: parseFloat(trans.INVBUY.UNITPRICE),
       quantity: parseFloat(trans.INVBUY.UNITS),
-      secId: trans.INVBUY.SECID.UNIQUEID
+      secId: trans.INVBUY.SECID.UNIQUEID,
     };
   }
 
@@ -41,7 +41,7 @@ export class OfxInvestmentTransactionAdapter {
       correctFitId: trans.INVBUY.INVTRAN.REVERSALFITID,
       price: parseFloat(trans.INVBUY.UNITPRICE),
       quantity: parseFloat(trans.INVBUY.UNITS),
-      secId: trans.INVBUY.SECID.UNIQUEID
+      secId: trans.INVBUY.SECID.UNIQUEID,
     };
   }
 
@@ -57,7 +57,7 @@ export class OfxInvestmentTransactionAdapter {
       dateTrade: OfxDateUtil.OfxDateToDate(trans.INVTRAN.DTTRADE),
       dateSettle: OfxDateUtil.OfxDateToDate(trans.INVTRAN.DTSETTLE),
       correctFitId: trans.INVTRAN.REVERSALFITID,
-      secId: trans.SECID.UNIQUEID
+      secId: trans.SECID.UNIQUEID,
     };
   }
 

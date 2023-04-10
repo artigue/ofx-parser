@@ -1,7 +1,7 @@
 import {
   OfxBankAccount,
   OfxCreditCardAccount,
-  OfxInvestmentAccount
+  OfxInvestmentAccount,
 } from './ofx-body';
 import { AccountModel } from '../account.model';
 import { OfxBankAccountAdapter } from './ofx-bank-account.adapter';

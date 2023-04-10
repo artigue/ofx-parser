@@ -8,7 +8,7 @@ export class OfxAccountBalanceAdapter {
   ): AccountBalanceModel {
     return {
       balanceAmount: parseFloat(balance.BALAMT),
-      balanceAsOf: OfxDateUtil.OfxDateToDate(balance.DTASOF)
+      balanceAsOf: OfxDateUtil.OfxDateToDate(balance.DTASOF),
     };
   }
 }
